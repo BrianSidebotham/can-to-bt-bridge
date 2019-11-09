@@ -1,0 +1,8 @@
+
+    CHANGELOG for the opencar CAN to bluetooth bridge
+    
+    17.04.11 - Brian Sidebotham
+        * HAL layer created and tested
+        * Based on a modified Olimex LPC-P1114 development board, fitted with an
+          LPC-11C14 + MCP2551
+                                 

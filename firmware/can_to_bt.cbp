@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="can_to_bt" />
+		<Option pch_mode="2" />
+		<Option compiler="armelfgcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\maintest.elf" prefix_auto="1" extension_auto="0" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="armelfgcc" />
+				<Compiler>
+					<Add option="-Os" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\maintest.elf" prefix_auto="1" extension_auto="0" />
+				<Option object_output="obj\Release\" />
+				<Option type="1" />
+				<Option compiler="armelfgcc" />
+				<Compiler>
+					<Add option="-Os" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-mthumb" />
+			<Add option="-O2" />
+			<Add option="-Wall" />
+			<Add option="-mcpu=cortex-m0" />
+			<Add option="-fverbose-asm" />
+			<Add option="-Wa,-ahlms=${TARGET_OUTPUT_FILE}.lst" />
+			<Add directory="${PROJECT_DIR}" />
+			<Add directory="..\..\firmwarelib" />
+		</Compiler>
+		<Linker>
+			<Add option="-nostartfiles" />
+			<Add option="-Wl,--gc-sections" />
+			<Add option="-Wl,-Map=${TARGET_OUTPUT_FILE}.map,--cref,--no-warn-mismatch" />
+			<Add option="-T hal/lpc/ld/lpc11c14_301.ld" />
+			<Add option="-t" />
+			<Add option="-mthumb" />
+			<Add option="-mcpu=cortex-m0" />
+			<Add library="oc_support" />
+			<Add directory="..\..\firmwarelib\bin\arm_m0" />
+		</Linker>
+		<ExtraCommands>
+			<Add after="arm-none-eabi-objcopy --strip-debug --strip-unneeded -O binary ${TARGET_OUTPUT_FILE} ${TARGET_OUTPUT_FILE}.bin" />
+			<Add after="arm-none-eabi-objcopy --strip-debug --strip-unneeded -O ihex ${TARGET_OUTPUT_FILE} ${TARGET_OUTPUT_FILE}.hex" />
+		</ExtraCommands>
+		<Unit filename="hal\arm\cortex\m0.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal\arm\cortex\m0.h" />
+		<Unit filename="hal\arm\cortex\m0_nvic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal\arm\cortex\m0_nvic.h" />
+		<Unit filename="hal\hal.h" />
+		<Unit filename="hal\lpc\ld\lpc11c14_301.ld" />
+		<Unit filename="hal\lpc\lpc11c14.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal\lpc\lpc11c14.h" />
+		<Unit filename="hal\lpc\lpc_c_can.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal\lpc\lpc_c_can.h" />
+		<Unit filename="hal\lpc\lpc_common.h" />
+		<Unit filename="hal\lpc\lpc_gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal\lpc\lpc_gpio.h" />
+		<Unit filename="hal\lpc\lpc_ioconfig.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal\lpc\lpc_ioconfig.h" />
+		<Unit filename="hal\lpc\lpc_nvic.h" />
+		<Unit filename="hal\lpc\lpc_syscon.h" />
+		<Unit filename="hal\lpc\lpc_systick.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal\lpc\lpc_timer.h" />
+		<Unit filename="hal\lpc\lpc_uart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hal\lpc\lpc_uart.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="syscalls.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
